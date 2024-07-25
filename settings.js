@@ -15,23 +15,23 @@ global.doc5 = 'application/pdf'
 global.doc6 = 'application/vnd.android.package-archive'
 
 //owmner v card
-global.owner = ['201098906252'] //ur owner number
-global.ownername = "ᗴᒪᘜᗩᘔᗩᖇ ᗩᒪᗯᗩᘔᗴᖇ❤️" //ur owner name
-global.ytname = "YT: ELGAZAR" //ur yt chanel name
-global.socialm = "GitHub: ELGAZAR" //ur github or insta name
+global.owner = ['212711858972'] //ur owner number
+global.ownername = "𝑶𝑩𝑰𝑻𝑶✦𝑶𝑻𝑿𝑰𝑯𝑨" //ur owner name
+global.ytname = "YT: 𝑶𝑩𝑰𝑻𝑶" //ur yt chanel name
+global.socialm = "GitHub: 𝑶𝑩𝑰𝑻𝑶" //ur github or insta name
 global.location = "Africa, Egypt, Cairo" //ur location
 
 //bot bomdy 
-global.ownernomer = "201098906252" //ur number
-global.premium = ['201098906252'] //ur premium number
-global.botname = '❤️ᗴᒪᘜᗩᘔᗩᖇ ᗷOT❤️' //ur bot name
-global.linkz = "https://youtube.com/@ABDALLAH_MOHAMED" //your theme url which will be displayed on whatsapp
+global.ownernomer = "212636959958" //ur number
+global.premium = ['212711858972'] //ur premium number
+global.botname = '❤️𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶❤️' //ur bot name
+global.linkz = "https://chat.whatsapp.com/FXb8ixEak93D4VMhXk0gT9" //your theme url which will be displayed on whatsapp
 global.websitex = "https://telegra.ph/file/ec763cc3e7c88d0e67682.jpg" //ur website to be displayed
-global.botscript = 'https://youtube.com/@ABDALLAH_MOHAMED' //script link
+global.botscript = 'https://chat.whatsapp.com/FXb8ixEak93D4VMhXk0gT9' //script link
 global.themeemoji = "♥" //ur theme emoji
-global.packname = "⍣الجزار الوزير يروحي⍣" //ur sticker watermark packname
-global.author = "⍣01098906252⍣" //ur sticker watermark author
-global.wm = "❤️ᗴᒪᘜᗩᘔᗩᖇ ᗷOT❤️." //ur watermark
+global.packname = "⍣اوببتو اوتشيها يروحي⍣" //ur sticker watermark packname
+global.author = "⍣212711-858972⍣" //ur sticker watermark author
+global.wm = "❤️𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶❤️." //ur watermark
 
 // Other
 global.sessionName = 'session'
@@ -40,8 +40,8 @@ global.sp = ''
 
 //messages
 global.mess = {
-    success: 'تم يروحي✨',
-    admin: '『 الامر دا لادمن بس! 』',
+    success: '『تم من عيني الستة 🙂』',
+    admin: ' 『اسف ولاكن هذا الأمر خاص بالمشرفين فقط😊』',
     botAdmin: '『 ارفع البوت ادمن الاول 』',
     premime: '『 ميزات خاصة متميزة إذا كنت ترغب في تسجيل نوع الإيجار 』',
     owner: '『 الميزه دي للمطور بس! 』',
