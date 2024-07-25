@@ -102,7 +102,7 @@ let xeonyaudio = JSON.parse(fs.readFileSync('./XeonMedia/theme/Media-Store-Karne
 let xeonyimage = JSON.parse(fs.readFileSync('./XeonMedia/theme/Media-Store-Karne-Ke-Liye/image.json'));
 let xeonyvideo = JSON.parse(fs.readFileSync('./XeonMedia/theme/Media-Store-Karne-Ke-Liye/video.json'));
 
-module.exports = ElgazarBot = async (ElgazarBot, m, chatUpdate, store) => {
+module.exports = 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶 = async (ElgazarBot, m, chatUpdate, store) => {
     try {
 var body = (m.mtype === 'conversation') ? m.message.conversation : (m.mtype == 'imageMessage') ? m.message.imageMessage.caption : (m.mtype == 'videoMessage') ? m.message.videoMessage.caption : (m.mtype == 'extendedTextMessage') ? m.message.extendedTextMessage.text : (m.mtype == 'buttonsResponseMessage') ? m.message.buttonsResponseMessage.selectedButtonId : (m.mtype == 'listResponseMessage') ? m.message.listResponseMessage.singleSelectReply.selectedRowId : (m.mtype == 'templateButtonReplyMessage') ? m.message.templateButtonReplyMessage.selectedId : (m.mtype === 'messageContextInfo') ? (m.message.buttonsResponseMessage?.selectedButtonId || m.message.listResponseMessage?.singleSelectReply.selectedRowId || m.text) : ''
 var budy = (typeof m.text == 'string' ? m.text : '')
@@ -111,7 +111,7 @@ const isCmd = body.startsWith(prefix)
 const command = body.replace(prefix, '').trim().split(/ +/).shift().toLowerCase()
 const args = body.trim().split(/ +/).slice(1)
 const pushname = m.pushName || "No Name"
-const botNumber = await ElgazarBot.decodeJid(ElgazarBot.user.id)
+const botNumber = await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.decodeJid(𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶)
 const isCreator = [botNumber, ...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
 const itsMe = m.sender == botNumber ? true : false
 const text = q = args.join(" ")
@@ -165,7 +165,7 @@ if (cek == null) return null
 		
 	
 // Group
-        const groupMetadata = m.isGroup ? await ElgazarBot.groupMetadata(m.chat).catch(e => {}) : ''
+        const groupMetadata = m.isGroup ? await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.groupMetadata(m.chat).catch(e => {}) : ''
         const groupName = m.isGroup ? groupMetadata.subject : ''
         const participants = m.isGroup ? await groupMetadata.participants : ''
         const groupAdmins = m.isGroup ? await getGroupAdmins(participants) : ''
@@ -348,7 +348,7 @@ detectLinks: false,
     //reply fake
 	//group target \\
 const reply = (teks) => {
-           ElgazarBot.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": `${ownername}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/theme/cheemspic.jpg`),"sourceUrl": `${linkz}`}}}, { quoted: m})
+           𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { text: teks, contextInfo:{"externalAdReply": {"title": ` ${global.botname}`,"body": `${ownername}`, "previewType": "PHOTO","thumbnailUrl": ``,"thumbnail": fs.readFileSync(`./XeonMedia/theme/cheemspic.jpg`),"sourceUrl": `${linkz}`}}}, { quoted: m})
         }
 
 	//button
@@ -397,7 +397,7 @@ let buttonMessage = {
      mediaType: 1
    }}
        }
-   ElgazarBot.sendMessage(m.chat, buttonMessage, options)
+   𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, buttonMessage, options)
    }
                 
         // Autosticker gc
@@ -420,9 +420,9 @@ let buttonMessage = {
         let gclink = (`https://chat.whatsapp.com/`+await ElgazarBot.groupInviteCode(m.chat))
         let isLinkThisGc = new RegExp(gclink, 'i')
         let isgclink = isLinkThisGc.test(m.text)
-        if (isgclink) return ElgazarBot.sendMessage(m.chat, {text: `\`\`\`「 Group Link Detected 」\`\`\`\n\nYou won't be kicked by a bot because what you send is a link to this group`})
-        if (isAdmins) return ElgazarBot.sendMessage(m.chat, {text: `\`\`\`「 Group Link Detected 」\`\`\`\n\nAdmin has sent a link, admin is free to post any link`})
-        if (isCreator) return ElgazarBot.sendMessage(m.chat, {text: `\`\`\`「 Group Link Detected 」\`\`\`\n\nOwner has sent a link, owner is free to post any link`})
+        if (isgclink) return 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, {text: `\`\`\`「 Group Link Detected 」\`\`\`\n\nYou won't be kicked by a bot because what you send is a link to this group`})
+        if (isAdmins) return 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, {text: `\`\`\`「 Group Link Detected 」\`\`\`\n\nAdmin has sent a link, admin is free to post any link`})
+        if (isCreator) return 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, {text: `\`\`\`「 Group Link Detected 」\`\`\`\n\nOwner has sent a link, owner is free to post any link`})
         await ElgazarBot.sendMessage(m.chat,
 			    {
 			        delete: {
@@ -432,8 +432,8 @@ let buttonMessage = {
 			            participant: m.key.participant
 			        }
 			    })
-			ElgazarBot.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-			ElgazarBot.sendMessage(from, {text:`\`\`\`「 Group Link Detected 」\`\`\`\n\n@${kice.split("@")[0]} Has been kicked because of sending group link in this group`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
+			𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+			𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(from, {text:`\`\`\`「 Group Link Detected 」\`\`\`\n\n@${kice.split("@")[0]} Has been kicked because of sending group link in this group`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
             }            
         }
         
@@ -446,7 +446,7 @@ if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
 if (isCreator) return m.reply(bvl)
 kice = m.sender
-        await ElgazarBot.sendMessage(m.chat,
+        await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat,
 			    {
 			        delete: {
 			            remoteJid: m.chat,
@@ -455,7 +455,7 @@ kice = m.sender
 			            participant: m.key.participant
 			        }
 			    })
-			ElgazarBot.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+			𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 ElgazarBot.sendMessage(from, {text:`\`\`\`「 Wa.me Link Detected 」\`\`\`\n\n@${kice.split("@")[0]} Has been kicked because of sending wa.me link in this group`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
 } else {
 }
@@ -467,7 +467,7 @@ if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
 if (isCreator) return m.reply(bvl)
 kice = m.sender
-        await ElgazarBot.sendMessage(m.chat,
+        await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat,
 			    {
 			        delete: {
 			            remoteJid: m.chat,
@@ -476,7 +476,7 @@ kice = m.sender
 			            participant: m.key.participant
 			        }
 			    })
-			ElgazarBot.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+			𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 ElgazarBot.sendMessage(from, {text:`\`\`\`「 Wa.me Link Detected 」\`\`\`\n\n@${kice.split("@")[0]} Has been kicked because of sending wa.me link in this group`, contextInfo:{mentionedJid:[kice]}}, {quoted:m})
 } else {
 }
@@ -484,7 +484,7 @@ ElgazarBot.sendMessage(from, {text:`\`\`\`「 Wa.me Link Detected 」\`\`\`\n\n@
   if (antiVirtex) {
   if (budy.length > 3500) {
   if (!isBotAdmins) return m.reply(mess.botAdmin)
-          await ElgazarBot.sendMessage(m.chat,
+          await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat,
 			    {
 			        delete: {
 			            remoteJid: m.chat,
@@ -493,8 +493,8 @@ ElgazarBot.sendMessage(from, {text:`\`\`\`「 Wa.me Link Detected 」\`\`\`\n\n@
 			            participant: m.key.participant
 			        }
 			    })
-			ElgazarBot.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-			ElgazarBot.sendMessage(from, {text:`\`\`\`「 Virus Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending virus in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
+			𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+			𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(from, {text:`\`\`\`「 Virus Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending virus in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
   }
   }
 //anti bad words by xeon
@@ -508,7 +508,7 @@ bvl = `\`\`\`「 منع السب 」\`\`\`\n\nأنت تستخدم كلمة سي�
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
 if (isCreator) return m.reply(bvl)
-        await ElgazarBot.sendMessage(m.chat,
+        await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat,
 			    {
 			        delete: {
 			            remoteJid: m.chat,
@@ -517,7 +517,7 @@ if (isCreator) return m.reply(bvl)
 			            participant: m.key.participant
 			        }
 			    })
-			ElgazarBot.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+			𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 ElgazarBot.sendMessage(from, {text:`\`\`\`「 منع السب 」\`\`\`\n\n@${m.sender.split("@")[0]} تم طرده بسبب السب في الجروب`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})}
 }
 //antilink youtube video by xeon
@@ -537,8 +537,8 @@ if (isCreator) return m.reply(bvl)
 			            participant: m.key.participant
 			        }
 			    })
-			ElgazarBot.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-ElgazarBot.sendMessage(from, {text:`\`\`\`「 YouTube Video Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending youtube video link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
+			𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(from, {text:`\`\`\`「 YouTube Video Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending youtube video link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
 } else {
 }
 //antilink youtube channel by xeon
@@ -549,7 +549,7 @@ bvl = `\`\`\`「 YoutTube Channel Link Detected 」\`\`\`\n\nAdmin has sent a yo
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
 if (isCreator) return m.reply(bvl)
-        await ElgazarBot.sendMessage(m.chat,
+        await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat,
 			    {
 			        delete: {
 			            remoteJid: m.chat,
@@ -558,8 +558,8 @@ if (isCreator) return m.reply(bvl)
 			            participant: m.key.participant
 			        }
 			    })
-			ElgazarBot.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-ElgazarBot.sendMessage(from, {text:`\`\`\`「 YouTube Channel Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending youtube channel link in this group`, contextInfo:{mentionedJid:[m.sendet]}}, {quoted:m})
+			𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(from, {text:`\`\`\`「 YouTube Channel Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending youtube channel link in this group`, contextInfo:{mentionedJid:[m.sendet]}}, {quoted:m})
 } else {
 }
 //antilink instagram by xeon
@@ -570,7 +570,7 @@ bvl = `\`\`\`「 Instagram Link Detected 」\`\`\`\n\nAdmin has sent a instagram
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
 if (isCreator) return m.reply(bvl)
-        await ElgazarBot.sendMessage(m.chat,
+        await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat,
 			    {
 			        delete: {
 			            remoteJid: m.chat,
@@ -579,8 +579,8 @@ if (isCreator) return m.reply(bvl)
 			            participant: m.key.participant
 			        }
 			    })
-			ElgazarBot.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-ElgazarBot.sendMessage(from, {text:`\`\`\`「 Instagram Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending instagram link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
+			𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(from, {text:`\`\`\`「 Instagram Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending instagram link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
 } else {
 }
 //antilink facebook by xeon
@@ -591,7 +591,7 @@ bvl = `\`\`\`「 Facebook Link Detected 」\`\`\`\n\nAdmin has sent a facebook l
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
 if (isCreator) return m.reply(bvl)
-        await ElgazarBot.sendMessage(m.chat,
+        await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat,
 			    {
 			        delete: {
 			            remoteJid: m.chat,
@@ -600,8 +600,8 @@ if (isCreator) return m.reply(bvl)
 			            participant: m.key.participant
 			        }
 			    })
-			ElgazarBot.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-ElgazarBot.sendMessage(from, {text:`\`\`\`「 Facebook Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending facebook link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
+			𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(from, {text:`\`\`\`「 Facebook Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending facebook link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
 } else {
 }
 //antilink telegram by xeon
@@ -613,7 +613,7 @@ bvl = `\`\`\`「 Telegram Link Detected 」\`\`\`\n\nAdmin has sent a telegram l
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
 if (isCreator) return m.reply(bvl)
-        await ElgazarBot.sendMessage(m.chat,
+        await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat,
 			    {
 			        delete: {
 			            remoteJid: m.chat,
@@ -622,7 +622,7 @@ if (isCreator) return m.reply(bvl)
 			            participant: m.key.participant
 			        }
 			    })
-			ElgazarBot.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+			𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
 ElgazarBot.sendMessage(from, {text:`\`\`\`「 Telegram Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending telegram link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
 } else {
 }
@@ -634,7 +634,7 @@ bvl = `\`\`\`「 Tiktok Link Detected 」\`\`\`\n\nAdmin has sent a tiktok link,
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
 if (isCreator) return m.reply(bvl)
-        await ElgazarBot.sendMessage(m.chat,
+        await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat,
 			    {
 			        delete: {
 			            remoteJid: m.chat,
@@ -643,8 +643,8 @@ if (isCreator) return m.reply(bvl)
 			            participant: m.key.participant
 			        }
 			    })
-			ElgazarBot.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-ElgazarBot.sendMessage(from, {text:`\`\`\`「 Tiktok Link - اترك رابط تيكتوكDetected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending tiktok link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
+			𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(from, {text:`\`\`\`「 Tiktok Link - اترك رابط تيكتوكDetected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending tiktok link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
 } else {
 }
 //antilink twitter by xeon
@@ -664,8 +664,8 @@ if (isCreator) return m.reply(bvl)
 			            participant: m.key.participant
 			        }
 			    })
-			ElgazarBot.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-ElgazarBot.sendMessage(from, {text:`\`\`\`「 Tiktok Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending twitter link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
+			𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(from, {text:`\`\`\`「 Tiktok Link Detected 」\`\`\`\n\n@${m.sender.split("@")[0]} Has been kicked because of sending twitter link in this group`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
 } else {
 }
 //antilink all by xeon
@@ -676,7 +676,7 @@ bvl = `\`\`\`「 منع الروابط 」\`\`\`\n\nاوه انت مشرف لا 
 if (isAdmins) return m.reply(bvl)
 if (m.key.fromMe) return m.reply(bvl)
 if (isCreator) return m.reply(bvl)
-        await ElgazarBot.sendMessage(m.chat,
+        await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat,
 			    {
 			        delete: {
 			            remoteJid: m.chat,
@@ -685,14 +685,14 @@ if (isCreator) return m.reply(bvl)
 			            participant: m.key.participant
 			        }
 			    })
-			ElgazarBot.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
-ElgazarBot.sendMessage(from, {text:`\`\`\`「 منع الروابط 」\`\`\`\n\n@${m.sender.split("@")[0]} تم اكتشاف رابط سيتم طردك في خلال 0 ثانيه 
+			𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.groupParticipantsUpdate(m.chat, [m.sender], 'remove')
+𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(from, {text:`\`\`\`「 منع الروابط 」\`\`\`\n\n@${m.sender.split("@")[0]} تم اكتشاف رابط سيتم طردك في خلال 0 ثانيه 
  
 لقد حظرتك من الروابط لماذا لم تسمع الكلام.  
  
  
  
-تمت البرمجه بواسطه: ELGAZAR ALWAZER`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
+تمت البرمجه بواسطه: 𝑶𝑩𝑰𝑻𝑶✦𝑶𝑻𝑿𝑰𝑯𝑨`, contextInfo:{mentionedJid:[m.sender]}}, {quoted:m})
 } else {
 }
 
@@ -701,28 +701,28 @@ ElgazarBot.sendMessage(from, {text:`\`\`\`「 منع الروابط 」\`\`\`\n\
         for (let anji of xeonysticker){
 				if (budy === anji){
 					result = fs.readFileSync(`./XeonMedia/sticker/${anji}.webp`)
-					ElgazarBot.sendMessage(m.chat, { sticker: result }, { quoted: m })
+					𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { sticker: result }, { quoted: m })
 					}
 			}
 			  if (Autoreply)
 			for (let anju of xeonyaudio){
 				if (budy === anju){
 					result = fs.readFileSync(`./XeonMedia/audio/${anju}.mp3`)
-					ElgazarBot.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
+					𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { audio: result, mimetype: 'audio/mp4', ptt: true }, { quoted: m })     
 					}
 			}
 			  if (Autoreply)
 			for (let anjh of xeonyimage){
 				if (budy === anjh){
 					result = fs.readFileSync(`./XeonMedia/image/${anjh}.jpg`)
-					ElgazarBot.sendMessage(m.chat, { image: result }, { quoted: m })
+					𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { image: result }, { quoted: m })
 					}
 			}
 			  if (Autoreply) 
 					for (let anjh of xeonyvideo){
 				if (budy === anjh){
 					result = fs.readFileSync(`./XeonMedia/video/${anjh}.mp4`)
-					ElgazarBot.sendMessage(m.chat, { video: result }, { quoted: m })
+					𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { video: result }, { quoted: m })
 					}
 				  }
 
@@ -834,8 +834,8 @@ ${isWin ? `@${winner.split('@')[0]} لقد فزت✨` : isTie ? `انتهت ال
 اكتب *surrender* للاستسلام والاعتراف بالهزيمة`
 	    if ((room.game._currentTurn ^ isSurrender ? room.x : room.o) !== m.chat)
 	    room[room.game._currentTurn ^ isSurrender ? 'x' : 'o'] = m.chat
-	    if (room.x !== room.o) await ElgazarBot.sendText(room.x, str, m, { mentions: parseMention(str) } )
-	    await ElgazarBot.sendText(room.o, str, m, { mentions: parseMention(str) } )
+	    if (room.x !== room.o) await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendText(room.x, str, m, { mentions: parseMention(str) } )
+	    await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendText(room.o, str, m, { mentions: parseMention(str) } )
 	    if (isTie || isWin) {
 	    delete this.game[room.id]
 	    }
@@ -849,7 +849,7 @@ ${isWin ? `@${winner.split('@')[0]} لقد فزت✨` : isTie ? `انتهت ال
 	    let tie = false
 	    if (m.sender == roof.p2 && /^(acc(ept)?|نعم|yes|okay?|لا|no|later|nop(e.)?yes|y)/i.test(m.text) && m.isGroup && roof.status == 'wait') {
 	    if (/^(reject|no|later|n|nop(e.)?yes)/i.test(m.text)) {
-	    ElgazarBot.sendTextWithMentions(m.chat, `@${roof.p2.split`@`[0]} rejected the suit, the suit is canceled`, m)
+	    𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendTextWithMentions(m.chat, `@${roof.p2.split`@`[0]} rejected the suit, the suit is canceled`, m)
 	    delete this.suit[roof.id]
 	    return !0
 	    }
@@ -857,19 +857,19 @@ ${isWin ? `@${winner.split('@')[0]} لقد فزت✨` : isTie ? `انتهت ال
 	    roof.asal = m.chat
 	    clearTimeout(roof.waktu)
 	    //delete roof[roof.id].waktu
-	    ElgazarBot.sendText(m.chat, `حسنا يمكنك الاختيار في شات البوت الخاص و عد الي المجموعه للاطلاع علي النتيجه
+	    𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendText(m.chat, `حسنا يمكنك الاختيار في شات البوت الخاص و عد الي المجموعه للاطلاع علي النتيجه
 
 @${roof.p.split`@`[0]} and 
 @${roof.p2.split`@`[0]}
 
 من فضلك اذهب الي شات البوت واختر منه https://wa.me/${botNumber.split`@`[0]}`, m, { mentions: [roof.p, roof.p2] })
-	    if (!roof.pilih) ElgazarBot.sendText(roof.p, `من فضلك اختر \n\حجر🗿\nورقه📄\nمقص✂️`, m)
-	    if (!roof.pilih2) ElgazarBot.sendText(roof.p2, `من فضلك اختر \n\nحجر🗿\nورقه📄\nمقص✂️`, m)
+	    if (!roof.pilih) 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendText(roof.p, `من فضلك اختر \n\حجر🗿\nورقه📄\nمقص✂️`, m)
+	    if (!roof.pilih2) 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendText(roof.p2, `من فضلك اختر \n\nحجر🗿\nورقه📄\nمقص✂️`, m)
 	    roof.waktu_milih = setTimeout(() => {
-	    if (!roof.pilih && !roof.pilih2) ElgazarBot.sendText(m.chat, `لم يتم اختيار اي شئ'[ ⏳ ] انتهت المهلة، تم إلغاؤها بسبب عدم الاستجابة ,\nانتهت اللعبه`)
+	    if (!roof.pilih && !roof.pilih2) 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendText(m.chat, `لم يتم اختيار اي شئ'[ ⏳ ] انتهت المهلة، تم إلغاؤها بسبب عدم الاستجابة ,\nانتهت اللعبه`)
 	    else if (!roof.pilih || !roof.pilih2) {
 	    win = !roof.pilih ? roof.p2 : roof.p
-	    ElgazarBot.sendTextWithMentions(m.chat, `@${(roof.pilih ? roof.p2 : roof.p).split`@`[0]} Didn't لعبه حجر ورقه, انتهت اللعبه`, m)
+	    𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendTextWithMentions(m.chat, `@${(roof.pilih ? roof.p2 : roof.p).split`@`[0]} Didn't لعبه حجر ورقه, انتهت اللعبه`, m)
 	    }
 	    delete this.suit[roof.id]
 	    return !0
@@ -885,13 +885,13 @@ ${isWin ? `@${winner.split('@')[0]} لقد فزت✨` : isTie ? `انتهت ال
 	    roof.pilih = reg.exec(m.text.toLowerCase())[0]
 	    roof.text = m.text
 	    m.reply(`حسنا لقد اخترت: ${m.text} ${!roof.pilih2 ? `\n\nالان اذهب الي المجموعه لرؤيه النتائج` : ''}`)
-	    if (!roof.pilih2) ElgazarBot.sendText(roof.p2, '_لقد اختار خصمك اختيار_\nحان دورك اختر بسرعه اسرع اسرع', 0)
+	    if (!roof.pilih2) 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendText(roof.p2, '_لقد اختار خصمك اختيار_\nحان دورك اختر بسرعه اسرع اسرع', 0)
 	    }
 	    if (jwb2 && reg.test(m.text) && !roof.pilih2 && !m.isGroup) {
 	    roof.pilih2 = reg.exec(m.text.toLowerCase())[0]
 	    roof.text2 = m.text
 	    m.reply(`حسنا لقد اخرت: ${m.text} ${!roof.pilih ? `\n\nالان اذهب الي المجموعه لرؤيه النتائج` : ''}`)
-	    if (!roof.pilih) ElgazarBot.sendText(roof.p, '_لقد اختار خصمك اختيار_\nحان دورك اختر بسرعه اسرع اسرع , 0)', 0)
+	    if (!roof.pilih) 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendText(roof.p, '_لقد اختار خصمك اختيار_\nحان دورك اختر بسرعه اسرع اسرع , 0)', 0)
 	    }
 	    let stage = roof.pilih
 	    let stage2 = roof.pilih2
@@ -904,7 +904,7 @@ ${isWin ? `@${winner.split('@')[0]} لقد فزت✨` : isTie ? `انتهت ال
 	    else if (k.test(stage) && b.test(stage2)) win = roof.p
 	    else if (k.test(stage) && g.test(stage2)) win = roof.p2
 	    else if (stage == stage2) tie = true
-	    ElgazarBot.sendText(roof.asal, `_*النتيجه الان*_${tie ? '\nSERIES' : ''}
+	    𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendText(roof.asal, `_*النتيجه الان*_${tie ? '\nSERIES' : ''}
 
 @${roof.p.split`@`[0]} (${roof.text}) ${tie ? '' : roof.p == win ? ` لقد ربح \n` : ` وانت خسرت \n`}
 @${roof.p2.split`@`[0]} (${roof.text2}) ${tie ? '' : roof.p2 == win ? ` لقد ربح \n` : ` وانت خسرت  \n`}
@@ -986,8 +986,8 @@ ${arr.slice(6).join('')}
 دور @${room.game.currentTurn.split('@')[0]}
 
 اكتب *surrender* للاستسلام والاعتراف بالهزيمة`
-            if (room.x !== room.o) await ElgazarBot.sendText(room.x, str, m, { mentions: parseMention(str) } )
-            await ElgazarBot.sendText(room.o, str, m, { mentions: parseMention(str) } )
+            if (room.x !== room.o) await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendText(room.x, str, m, { mentions: parseMention(str) } )
+            await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendText(room.o, str, m, { mentions: parseMention(str) } )
             } else {
             room = {
             id: 'tictactoe-' + (+new Date),
@@ -1007,7 +1007,7 @@ ${arr.slice(6).join('')}
             try {
             if (this.game) {
             delete this.game
-            ElgazarBot.sendText(m.chat, `تم حذف الجلسه بنجاح`, m)
+            𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendText(m.chat, `تم حذف الجلسه بنجاح`, m)
             } else if (!this.game) {
             m.reply(`الجلسه غير موجوده`)
             } else throw '?'
@@ -1032,13 +1032,13 @@ ${arr.slice(6).join('')}
 
 *اهلا* @${m.mentionedJid[0].split`@`[0]} *اذا كنت تقبل التحدي اكتب نعم واذا لا تريد اكتب لا`
             this.suit[id] = {
-            chat: await ElgazarBot.sendText(m.chat, caption, m, { mentions: parseMention(caption) }),
+            chat: await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendText(m.chat, caption, m, { mentions: parseMention(caption) }),
             id: id,
             p: m.sender,
             p2: m.mentionedJid[0],
             status: 'wait',
             waktu: setTimeout(() => {
-            if (this.suit[id]) ElgazarBot.sendText(m.chat, `_[ ⏳ ] انتهت المهلة، تم إلغاؤها بسبب عدم الاستجابة _`, m)
+            if (this.suit[id]) 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendText(m.chat, `_[ ⏳ ] انتهت المهلة، تم إلغاؤها بسبب عدم الاستجابة _`, m)
             delete this.suit[id]
             }, 60000), poin, poin_lose, timeout
             }
@@ -1104,7 +1104,7 @@ break
             const somtoy = solot[Math.floor(Math.random() * solot.length)]
             let sloth =`[  🎰 لعبه الفواكه 🎰  ]\n------------------------\n\n🍒 : 🍌 : 🍇\n${somtoy}<=====\n🍇 : 🍌 : 🍒\n\n------------------------\n[  🎰 لعبه الفواكه 🎰  ]\n\n*معلومة* :\n_إذا حصلت على 3 من نفس الفاكهة_\n_يعني أنك فزت_\n\n_مثال : 🍒 : 🍒 : 🍒_ <=====`
             let buttons = [{ buttonId: 'الفاكهه', buttonText: { displayText: '🎰مره اخري🎰' }, type: 1 }]
-            await ElgazarBot.sendButtonText(m.chat, buttons, sloth, botname, m)
+            await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendButtonText(m.chat, buttons, sloth, botname, m)
             }
             break
             case 'soulmate': case 'رفيق': {
@@ -1112,14 +1112,14 @@ break
             let member = participants.map(u => u.id)
             let me = m.sender
             let jodoh = member[Math.floor(Math.random() * member.length)]
-            let jawab = `👫 رفيق الروح
+            let jawab = `👫 رفيق الروح الخاص بك حافض عليه يارجل
 
 @${me.split('@')[0]} ❤️ @${jodoh.split('@')[0]}`
             let ments = [me, jodoh]
             let buttons = [
                         { buttonId: '❤️', buttonText: { displayText: 'كن رفيق الروح❤✨' }, type: 1 }
                     ]
-                    await ElgazarBot.sendButtonText(m.chat, buttons, jawab, botname, m, {mentions: ments})
+                    await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendButtonText(m.chat, buttons, jawab, botname, m, {mentions: ments})
             }
             break
             
@@ -1135,7 +1135,7 @@ break
             let buttons = [
                         { buttonId: '💔', buttonText: { displayText: 'فارقني 💔️' }, type: 1 }
                     ]
-                    await ElgazarBot.sendButtonText(m.chat, buttons, jawab, botname, m, {mentions: ments})
+                    await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendButtonText(m.chat, buttons, jawab, botname, m, {mentions: ments})
             }
             break
             
@@ -1150,7 +1150,7 @@ break
             let buttons = [
                         { buttonId: '「 يب هم مناسبين لبعض😂🤡 」◣', buttonText: { displayText: '「 يب هم مناسبين لبعض😂🤡 」◣' }, type: 1 }
                     ]
-                    await ElgazarBot.sendButtonText(m.chat, buttons, jawab, botname, m, {mentions: menst})
+                    await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendButtonText(m.chat, buttons, jawab, botname, m, {mentions: menst})
             }
             break
             
@@ -1165,7 +1165,7 @@ break
             let buttons = [
                         { buttonId: '「 يب هم مش مناسبين لبعض 💔 」◣', buttonText: { displayText: '「 يب هم مش مناسبين لبعض 💔 」◣' }, type: 1 }
                     ]
-                    await ElgazarBot.sendButtonText(m.chat, buttons, jawab, botname, m, {mentions: menst})
+                    await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendButtonText(m.chat, buttons, jawab, botname, m, {mentions: menst})
             }
             break
             
@@ -1204,7 +1204,7 @@ break
 			if (!text) throw `Example : ${prefix + command} hi|hello`
             let jawab = `${text.split("|")[0]}`
             let buttons = [{ buttonId: 'menu', buttonText: { displayText: `${themeemoji}` }, type: 1 }]
-            await ElgazarBot.sendButtonText(m.chat, buttons, jawab, `${text.split("|")[1]}`, m)
+            await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendButtonText(m.chat, buttons, jawab, `${text.split("|")[1]}`, m)
             }
             break
             
@@ -1216,7 +1216,7 @@ break
                         key: { remoteJid: m.chat, fromMe: true, id: quoted.id }
                     }
                 }
-                ElgazarBot.sendMessage(m.chat, reactionMessage)
+                𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, reactionMessage)
             }
             break  
             case 'join': case 'ادخل': case 'انضم': {
@@ -1225,12 +1225,12 @@ break
                 if (!isUrl(args[0]) && !args[0].includes('whatsapp.com')) throw 'الرابط خطأ!'
                 m.reply(mess.wait)
                 let result = args[0].split('https://chat.whatsapp.com/')[1]
-                await ElgazarBot.groupAcceptInvite(result).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+                await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.groupAcceptInvite(result).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
             }
             break
             case 'اخرج': case 'غادر': {
                 if (!isCreator) throw mess.owner
-                await ElgazarBot.groupLeave(m.chat).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+                await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.groupLeave(m.chat).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
             }
             break
             case 'setexif': {
@@ -1254,7 +1254,7 @@ break
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
 		let users = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-		await ElgazarBot.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+		await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
 	}
 	break
 	case 'promote': case 'رفع': case 'ترقيه': case 'ترقية': case 'ارفع': {
@@ -1262,7 +1262,7 @@ break
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-		await ElgazarBot.groupParticipantsUpdate(m.chat, [users], 'promote').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+		await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.groupParticipantsUpdate(m.chat, [users], 'promote').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
 	}
 	break
 	case 'demote': case 'تنزيل': case 'نزل': case 'تخفيض': {
@@ -1270,19 +1270,19 @@ break
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-		await ElgazarBot.groupParticipantsUpdate(m.chat, [users], 'demote').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+		await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.groupParticipantsUpdate(m.chat, [users], 'demote').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
 	}
 	break
         case 'block': case 'بلوك': {
 		if (!isCreator) throw mess.owner
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-		await ElgazarBot.updateBlockStatus(users, 'block').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+		await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.updateBlockStatus(users, 'block').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
 	}
 	break
         case 'unblock': case 'فك-البلوك': {
 		if (!isCreator) throw mess.owner
 		let users = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-		await ElgazarBot.updateBlockStatus(users, 'unblock').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+		await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.updateBlockStatus(users, 'unblock').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
 	}
 	break
 	    case 'setname': case 'تغيرالاسم': {
@@ -1290,7 +1290,7 @@ break
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
                 if (!text) throw 'اين الاسم الجديد ?'
-                await ElgazarBot.groupUpdateSubject(m.chat, text).then((res) => m.reply(mess.success)).catch((err) => m.reply(jsonformat(err)))
+                await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.groupUpdateSubject(m.chat, text).then((res) => m.reply(mess.success)).catch((err) => m.reply(jsonformat(err)))
             }
             break
           case 'setdesc': case 'تغيرالبايو': case 'تغيرالوصف': {
@@ -1298,7 +1298,7 @@ break
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
                 if (!text) throw 'اين الوصف الجديد ?'
-                await ElgazarBot.groupUpdateDescription(m.chat, text).then((res) => m.reply(mess.success)).catch((err) => m.reply(jsonformat(err)))
+                await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.groupUpdateDescription(m.chat, text).then((res) => m.reply(mess.success)).catch((err) => m.reply(jsonformat(err)))
             }
             break
           case 'setbotpp': case 'حطهاخلفيه': {
@@ -1306,8 +1306,8 @@ break
                 if (!quoted) throw `رد علي صوره واكتب الامر ${prefix + command}`
                 if (!/image/.test(mime)) throw `رد علي صوره واكتب الامر ${prefix + command}`
                 if (/webp/.test(mime)) throw `رد علي صوره واكتب الامر ${prefix + command}`
-                let media = await ElgazarBot.downloadAndSaveMediaMessage(quoted)
-                await ElgazarBot.updateProfilePicture(botNumber, { url: media }).catch((err) => fs.unlinkSync(media))
+                let media = await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.downloadAndSaveMediaMessage(quoted)
+                await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.updateProfilePicture(botNumber, { url: media }).catch((err) => fs.unlinkSync(media))
                 m.reply(mess.success)
                 }
                 break
@@ -1317,8 +1317,8 @@ break
                 if (!quoted) throw `رد علي صوره واكتب الامر ${prefix + command}`
                 if (!/image/.test(mime)) throw `رد علي صوره واكتب الامر ${prefix + command}`
                 if (/webp/.test(mime)) throw `رد علي صوره واكتب الامر ${prefix + command}`
-                let media = await ElgazarBot.downloadAndSaveMediaMessage(quoted)
-                await ElgazarBot.updateProfilePicture(m.chat, { url: media }).catch((err) => fs.unlinkSync(media))
+                let media = await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.downloadAndSaveMediaMessage(quoted)
+                await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.updateProfilePicture(m.chat, { url: media }).catch((err) => fs.unlinkSync(media))
                 m.reply(mess.success)
                 }
                 break
@@ -1339,7 +1339,7 @@ let teks = `══✪〘˙·٠${themeemoji}● منشن للكل ●${themeemoji
             if (!m.isGroup) throw mess.group
             if (!isBotAdmins) throw mess.botAdmin
             if (!isAdmins) throw mess.admin
-            ElgazarBot.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)}, { quoted: m })
+            𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { text : q ? q : '' , mentions: participants.map(a => a.id)}, { quoted: m })
             }
             break
 	    case 'style': case 'زغرفه': {
@@ -1390,7 +1390,7 @@ let buttonsVote = [
 
             let buttonMessageVote = {
                 text: teks_vote,
-                footer: ElgazarBot.user.name,
+                footer: 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.user.name,
                 buttons: buttonsVote,
                 headerType: 1
             }
@@ -1431,12 +1431,12 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 
             let buttonMessageUpvote = {
                 text: teks_vote,
-                footer: ElgazarBot.user.name,
+                footer: 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.user.name,
                 buttons: buttonsUpvote,
                 headerType: 1,
                 mentions: menvote
              }
-            ElgazarBot.sendMessage(m.chat, buttonMessageUpvote)
+            𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, buttonMessageUpvote)
 	    }
              break
                 case 'devote': {
@@ -1473,12 +1473,12 @@ ${vote[m.chat][2].map((v, i) => `├ ${i + 1}. @${v.split`@`[0]}`).join('\n')}
 
             let buttonMessageDevote = {
                 text: teks_vote,
-                footer: ElgazarBot.user.name,
+                footer: 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.user.name,
                 buttons: buttonsDevote,
                 headerType: 1,
                 mentions: menvote
             }
-            ElgazarBot.sendMessage(m.chat, buttonMessageDevote)
+            𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, buttonMessageDevote)
 	}
             break
                  
@@ -1522,9 +1522,9 @@ case 'group': case 'جروب': {
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
                 if (args[0] === 'قفل'){
-                    await ElgazarBot.groupSettingUpdate(m.chat, 'announcement').then((res) => m.reply(`*تم قفل الجروب*`)).catch((err) => m.reply(jsonformat(err)))
+                    await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.groupSettingUpdate(m.chat, 'announcement').then((res) => m.reply(`*تم قفل الجروب*`)).catch((err) => m.reply(jsonformat(err)))
                 } else if (args[0] === 'فتح'){
-                    await ElgazarBot.groupSettingUpdate(m.chat, 'not_announcement').then((res) => m.reply(`*تم فتح الجروب*`)).catch((err) => m.reply(jsonformat(err)))
+                    await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.groupSettingUpdate(m.chat, 'not_announcement').then((res) => m.reply(`*تم فتح الجروب*`)).catch((err) => m.reply(jsonformat(err)))
                 } else {
                 let buttons = [
                         { buttonId: 'جروب فتح', buttonText: { displayText: 'فتح' }, type: 1 },
@@ -1540,15 +1540,15 @@ case 'group': case 'جروب': {
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
              if (args[0] === 'open'){
-                await ElgazarBot.groupSettingUpdate(m.chat, 'unlocked').then((res) => m.reply(`*Successfully Opened Edit Group Info*`)).catch((err) => m.reply(jsonformat(err)))
+                await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.groupSettingUpdate(m.chat, 'unlocked').then((res) => m.reply(`*Successfully Opened Edit Group Info*`)).catch((err) => m.reply(jsonformat(err)))
              } else if (args[0] === 'close'){
-                await ElgazarBot.groupSettingUpdate(m.chat, 'locked').then((res) => m.reply(`*Successfully Close Edit Group Info*`)).catch((err) => m.reply(jsonformat(err)))
+                await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.groupSettingUpdate(m.chat, 'locked').then((res) => m.reply(`*Successfully Close Edit Group Info*`)).catch((err) => m.reply(jsonformat(err)))
              } else {
              let buttons = [
                         { buttonId: 'editinfo open', buttonText: { displayText: 'Open' }, type: 1 },
                         { buttonId: 'editinfo close', buttonText: { displayText: 'Close' }, type: 1 }
                     ]
-                    await ElgazarBot.sendButtonText(m.chat, buttons, `Mode Edit Info`, botname, m)
+                    await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendButtonText(m.chat, buttons, `Mode Edit Info`, botname, m)
 
             }
             }
@@ -1571,7 +1571,7 @@ case 'mute': {
                 if (args[0] === "on") {
                 if (db.data.chats[m.chat].mute) return m.reply(`It's Been Active Before`)
                 db.data.chats[m.chat].mute = true
-                m.reply(`${ElgazarBot.user.name} has been muted in this group !`)
+                m.reply(`${𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.user.name} has been muted in this group !`)
                 } else if (args[0] === "off") {
                 if (!db.data.chats[m.chat].mute) return m.reply(`Not Activated Before`)
                 db.data.chats[m.chat].mute = false
@@ -1581,7 +1581,7 @@ case 'mute': {
                         { buttonId: 'mute on', buttonText: { displayText: 'On' }, type: 1 },
                         { buttonId: 'mute off', buttonText: { displayText: 'Off' }, type: 1 }
                     ]
-                    await ElgazarBot.sendButtonText(m.chat, buttons, `Mute Bot`, botname, m)
+                    await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendButtonText(m.chat, buttons, `Mute Bot`, botname, m)
                 }
              }
              break
@@ -1615,7 +1615,7 @@ break
                 if (args[0] === 'enable') {
                     await ElgazarBot.sendMessage(m.chat, { disappearingMessagesInChat: WA_DEFAULT_EPHEMERAL }).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
                 } else if (args[0] === 'disable') {
-                    await ElgazarBot.sendMessage(m.chat, { disappearingMessagesInChat: false }).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+                    await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { disappearingMessagesInChat: false }).then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
                 }
             }
             break
@@ -1623,7 +1623,7 @@ break
                 if (!m.quoted) throw false
                 let { chat, fromMe, id, isBaileys } = m.quoted
                 if (!isBaileys) throw 'هذه الرساله لم يرسلها البوت ولا يمكنني حذفها'
-                ElgazarBot.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: true, id: m.quoted.id, participant: m.quoted.sender } })
+                𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { delete: { remoteJid: m.chat, fromMe: true, id: m.quoted.id, participant: m.quoted.sender } })
             }
             break
             case 'report': case 'ابلاغ': {
@@ -1633,9 +1633,9 @@ break
                let pjtxt = `Message From : @${me.split('@')[0]} \nFor : @${ownernya.split('@')[0]}\n\n${text}`
                let ments = [ownernya, me]
                let buttons = [{ buttonId: 'hehehe', buttonText: { displayText: '🙏THANKS FOR THE REPORT' }, type: 1 }]
-            await ElgazarBot.sendButtonText(ownernya, buttons, pjtxt, botname, m, {mentions: ments})
+            await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendButtonText(ownernya, buttons, pjtxt, botname, m, {mentions: ments})
             let akhji = `Report Sent\nTo Owner @${ownernya.split('@')[0]}\n*Thank you for the report🙏*\n_Your number will be blocked_\n_If the Report is Only Created_`
-            await ElgazarBot.sendButtonText(m.chat, buttons, akhji, botname, m, {mentions: ments})
+            await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendButtonText(m.chat, buttons, akhji, botname, m, {mentions: ments})
             }
             break
             
@@ -1644,7 +1644,7 @@ break
 		            if (!text) throw `Enter text`
 		                            var data = await store.chats.all()
                             for (let i of data) {
-                               ElgazarBot.sendMessage(i.id, {text: `${ownername}'s Broadcast\n\nMessage : ${q}` })
+                               𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(i.id, {text: `${ownername}'s Broadcast\n\nMessage : ${q}` })
                                await sleep(1000)
                             }
                             break
@@ -1659,7 +1659,7 @@ if(!isCreator) throw mess.owner
 let txt = `${ownername}' اذاعه\n\nالرساله : ${text}`
 if(/image/.test(mime)) {
 let media = await quoted.download()
-await ElgazarBot.sendMessage(i, { image:media,  caption: txt,mentions:participants.map(a => a.id) })
+await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(i, { image:media,  caption: txt,mentions:participants.map(a => a.id) })
 }
 if(/video/.test(mime)){
 let media = await quoted.download()
@@ -1682,7 +1682,7 @@ await ElgazarBot.sendMessage(i, { video:media,  caption: txt, mentions:participa
                      let nama = store.messages[i].array[0].pushName
                      teks += `${themeemoji} *Name :* ${nama}\n${themeemoji} *User :* @${i.split('@')[0]}\n${themeemoji} *Chat :* https://wa.me/${i.split('@')[0]}\n\n────────────────────────\n\n`
                  }
-                 ElgazarBot.sendTextWithMentions(m.chat, teks, m)
+                 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendTextWithMentions(m.chat, teks, m)
              }
              break
                 case 'listgc': {
@@ -1692,13 +1692,13 @@ await ElgazarBot.sendMessage(i, { video:media,  caption: txt, mentions:participa
                      let metadata = await ElgazarBot.groupMetadata(i)
                      teks += `${themeemoji} *Name :* ${metadata.subject}\n${themeemoji} *Owner :* ${metadata.owner !== undefined ? '@' + metadata.owner.split`@`[0] : 'Unknown'}\n${themeemoji} *ID :* ${metadata.id}\n${themeemoji} *Made :* ${moment(metadata.creation * 1000).tz('Asia/Kolkata').format('DD/MM/YYYY HH:mm:ss')}\n${themeemoji} *Member :* ${metadata.participants.length}\n\n────────────────────────\n\n`
                  }
-                 ElgazarBot.sendTextWithMentions(m.chat, teks, m)
+                 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendTextWithMentions(m.chat, teks, m)
              }
              break
              case 'الصاحيين': case 'المتصلين': {
                     let id = args && /\d+\-\d+@g.us/.test(args[0]) ? args[0] : m.chat
                     let online = [...Object.keys(store.presences[id]), botNumber]
-                    ElgazarBot.sendText(m.chat, '𓆩  *قفشتكم يا ورعان👾*  𓆪:\n\n' + online.map(v => '◐ @' + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })
+                    𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendText(m.chat, '𓆩  *قفشتكم يا ورعان👾*  𓆪:\n\n' + online.map(v => '◐ @' + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })
              }
              break
 case 'sticker': case 's': case 'ملصق': case 'ستيكر': {
@@ -1706,12 +1706,12 @@ case 'sticker': case 's': case 'ملصق': case 'ستيكر': {
             m.reply(mess.wait)
                     if (/image/.test(mime)) {
                 let media = await quoted.download()
-                let encmedia = await ElgazarBot.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
+                let encmedia = await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendImageAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
                 await fs.unlinkSync(encmedia)
             } else if (/video/.test(mime)) {
                 if ((quoted.msg || quoted).seconds > 11) return m.reply('*الحد الادني في الفيديو لصنع الاستيكر 9 ثواني!*')
                 let media = await quoted.download()
-                let encmedia = await ElgazarBot.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
+                let encmedia = await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendVideoAsSticker(m.chat, media, m, { packname: global.packname, author: global.author })
                 await fs.unlinkSync(encmedia)
             } else {
                 throw `*عذرا ارسل ستيكر او فيديو لا يتعدي الـ9 ثواني و اعمل ريبلاي علي الفيديو او الصوره واكتب : ستيكر*`
@@ -1763,7 +1763,7 @@ break
 		if (!emoji2) throw `مثال : ${prefix + command} 😅+🤔`
 		let anumojimix = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(emoji1)}_${encodeURIComponent(emoji2)}`)
 		for (let res of anumojimix.results) {
-		    let encmedia = await ElgazarBot.sendImageAsSticker(m.chat, res.url, m, { packname: global.packname, author: global.author, categories: res.tags })
+		    let encmedia = await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendImageAsSticker(m.chat, res.url, m, { packname: global.packname, author: global.author, categories: res.tags })
 		    await fs.unlinkSync(encmedia)
 		}
 	    }
@@ -1772,7 +1772,7 @@ break
 	    if (!text) throw `Example : ${prefix + command} 😅+🤔`
 		let anumix2 = await fetchJson(`https://tenor.googleapis.com/v2/featured?key=AIzaSyAyimkuYQYF_FXVALexPuGQctUWRURdCYQ&contentfilter=high&media_filter=png_transparent&component=proactive&collection=emoji_kitchen_v5&q=${encodeURIComponent(text)}`)
 		for (let res of anumix2.results) {
-		    let encmedia = await ElgazarBot.sendImageAsSticker(m.chat, res.url, m, { packname: global.packname, author: global.author, categories: res.tags })
+		    let encmedia = await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendImageAsSticker(m.chat, res.url, m, { packname: global.packname, author: global.author, categories: res.tags })
 		    await fs.unlinkSync(encmedia)
 		}
 	    }
@@ -1780,7 +1780,7 @@ break
          case 'tts': case 'انطق': case 'قول': {
          	if (!text) throw `مثال : ${prefix + command} والنص`
              let tts = await fetchJson(`https://api.akuari.my.id/texttovoice/texttosound_english?query=${text}`)
-             ElgazarBot.sendMessage(m.chat, { audio: { url: tts.result }, mimetype: 'audio/mp4', ptt: true, fileName: `${text}.mp3` }, { quoted: m })
+             𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { audio: { url: tts.result }, mimetype: 'audio/mp4', ptt: true, fileName: `${text}.mp3` }, { quoted: m })
          	}
          break 
 	case 'smeme': case 'اكتب': case 'كتابه': {
@@ -1789,7 +1789,7 @@ if (!text) return m.reply(`رد علي صوره واكتب ${prefix + command} *
 if (text.includes('|')) return m.reply(`رد علي صوره واكتب ${prefix + command} *والنص*`)
 if (!/image/.test(mime)) return m.reply(`رد علي صوره واكتب ${prefix + command} *والنص*`)
 m.reply(mess.wait)
-mee = await ElgazarBot.downloadAndSaveMediaMessage(quoted)
+mee = await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.downloadAndSaveMediaMessage(quoted)
 mem = await TelegraPh(mee)
 meme = `https://api.memegen.link/images/custom/-/${text}.png?background=${mem}`
 memek = await ElgazarBot.sendImageAsSticker(m.chat, meme, m, { packname: global.packname, author: global.author })
@@ -1840,7 +1840,7 @@ case 'لفيديو': case 'tovideo': {
             let media = await quoted.download()
             let { toAudio } = require('./lib/converter')
             let audio = await toAudio(media, 'mp4')
-            ElgazarBot.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `Convert By ${ElgazarBot.user.name}.mp3`}, { quoted : m })
+            𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, {document: audio, mimetype: 'audio/mpeg', fileName: `Convert By ${ElgazarBot.user.name}.mp3`}, { quoted : m })
             }
             break
             case 'tovn': case 'toptt': {
@@ -1850,7 +1850,7 @@ case 'لفيديو': case 'tovideo': {
             let media = await quoted.download()
             let { toPTT } = require('./lib/converter')
             let audio = await toPTT(media, 'mp4')
-            ElgazarBot.sendMessage(m.chat, {audio: audio, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
+            𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, {audio: audio, mimetype:'audio/mpeg', ptt:true }, {quoted:m})
             }
             break
             case 'لجيف': case 'لمتحرك': {
@@ -1860,7 +1860,7 @@ case 'لفيديو': case 'tovideo': {
 		let { webp2mp4File } = require('./lib/uploader')
                 let media = await ElgazarBot.downloadAndSaveMediaMessage(quoted)
                 let webpToMp4 = await webp2mp4File(media)
-                await ElgazarBot.sendMessage(m.chat, { video: { url: webpToMp4.result, caption: 'Convert Webp To Video' }, gifPlayback: true }, { quoted: m })
+                await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { video: { url: webpToMp4.result, caption: 'Convert Webp To Video' }, gifPlayback: true }, { quoted: m })
                 await fs.unlinkSync(media)
             }
             break
@@ -1883,7 +1883,7 @@ case 'لفيديو': case 'tovideo': {
 	      scale: "100%",
 	      outputFile 
 	    }).then(async result => {
-	    ElgazarBot.sendMessage(m.chat, {image: fs.readFileSync(outputFile), caption: mess.success}, { quoted : m })
+	    𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, {image: fs.readFileSync(outputFile), caption: mess.success}, { quoted : m })
 	    await fs.unlinkSync(localFile)
 	    await fs.unlinkSync(outputFile)
 	    })
@@ -1898,7 +1898,7 @@ case 'لفيديو': case 'tovideo': {
                 for (let i of search.all) {
                     teks += `${themeemoji} No : ${no++}\n${themeemoji} Type : ${i.type}\n${themeemoji} Video ID : ${i.videoId}\n${themeemoji} Title : ${i.title}\n${themeemoji} Views : ${i.views}\n${themeemoji} Duration : ${i.timestamp}\n${themeemoji} Uploaded : ${i.ago}\n${themeemoji} Url : ${i.url}\n\n─────────────────\n\n`
                 }
-                ElgazarBot.sendMessage(m.chat, { image: { url: search.all[0].thumbnail },  caption: teks }, { quoted: m })
+                𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { image: { url: search.all[0].thumbnail },  caption: teks }, { quoted: m })
             }
             break
         case 'google': {
@@ -1941,7 +1941,7 @@ if (!text) return m.reply(`Example : ${prefix + command} Stay jb`)
                 buttonText: "Videos",
                 mentions: parseMention(teskd), sections
             }
-            return ElgazarBot.sendMessage(m.chat, listMessage, {
+            return 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, listMessage, {
                 quoted: m
             })
             }
@@ -2005,7 +2005,7 @@ if (!text) return m.reply(`Example : ${prefix + command} Stay jb`)
 *┃🎲الوصف :* ${anulay.description}
 *┃🌿 الرابط :* ${anulay.url}
 
-┃اسم البوت : 📶 𝗕𝗢𝗧 𝗘𝗟𝗚𝗔𝗭𝗔𝗥 📶 
+┃اسم البوت : 📶 𝗕𝗢𝗧 𝑶𝑩𝑰𝑻𝑶✦𝑶𝑻𝑿𝑰𝑯𝑨 📶 
 
 ┗━━━━━━━━━❊`,
                     footer: botname,
@@ -2046,7 +2046,7 @@ let ytsmp4 = require("youtube-yts")
         let xeonsearch13 = await ytsmp4(text)
         let anuvidoke4 = xeonsearch13.videos[0]
 const pl2= await xeonplaymp4.mp4(anuvidoke4.url)
-await ElgazarBot.sendMessage(m.chat,{
+await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat,{
     document: {url:pl2.videoUrl},
     fileName: anuvidoke4.title + '.mp4',
     mimetype: 'video/mp4',
@@ -2088,8 +2088,8 @@ break
                 let quality = args[1] ? args[1] : '128kbps'
                 let media = await yta(text, quality)
                 if (media.filesize >= 100000) return m.reply('File Over Limit '+util.format(media))
-                ElgazarBot.sendImage(m.chat, media.thumb, `${themeemoji} Title : ${media.title}\n${themeemoji} File Size : ${media.filesizeF}\n${themeemoji} Url : ${isUrl(text)}\n${themeemoji} Ext : MP3\n${themeemoji} Resolution : ${args[1] || '128kbps'}`, m)
-                ElgazarBot.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
+                𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendImage(m.chat, media.thumb, `${themeemoji} Title : ${media.title}\n${themeemoji} File Size : ${media.filesizeF}\n${themeemoji} Url : ${isUrl(text)}\n${themeemoji} Ext : MP3\n${themeemoji} Resolution : ${args[1] || '128kbps'}`, m)
+                𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { audio: { url: media.dl_link }, mimetype: 'audio/mpeg', fileName: `${media.title}.mp3` }, { quoted: m })
             }
             break
 case 'ytmp4': case 'ytvideo': //credit: Ray Senpai ❤️ https://github.com/EternityBots/Nezuko
@@ -2101,7 +2101,7 @@ const ytc=`
 *${themeemoji}Date:* ${vid.date}
 *${themeemoji}Duration:* ${vid.duration}
 *${themeemoji}Quality:* ${vid.quality}`
-await ElgazarBot.sendMessage(m.chat,{
+await 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat,{
     video: {url:vid.videoUrl},
     caption: ytc
 },{quoted:m})
@@ -2112,7 +2112,7 @@ break
                 let quality = args[1] ? args[1] : '360p'
                 let media = await ytv(text, quality)
                 if (media.filesize >= 100000) return m.reply('File Over Limit '+util.format(media))
-                ElgazarBot.sendMessage(m.chat, { video: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `${themeemoji} Title : ${media.title}\n${themeemoji} File Size : ${media.filesizeF}\n${themeemoji} Url : ${isUrl(text)}\n${themeemoji} Ext : MP3\n${themeemoji} Resolution : ${args[1] || '360p'}` }, { quoted: m })
+                𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { video: { url: media.dl_link }, mimetype: 'video/mp4', fileName: `${media.title}.mp4`, caption: `${themeemoji} Title : ${media.title}\n${themeemoji} File Size : ${media.filesizeF}\n${themeemoji} Url : ${isUrl(text)}\n${themeemoji} Ext : MP3\n${themeemoji} Resolution : ${args[1] || '360p'}` }, { quoted: m })
             }
             break
 case 'pinterest': {
@@ -2120,7 +2120,7 @@ case 'pinterest': {
 		let { pinterest } = require('./lib/scraper')
                 anupint = await pinterest(text)
                 result = anupint[Math.floor(Math.random() * anupint.length)]
-                ElgazarBot.sendMessage(m.chat, { image: { url: result }, caption: `${themeemoji} Media Url : `+result }, { quoted: m })
+                𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { image: { url: result }, caption: `${themeemoji} Media Url : `+result }, { quoted: m })
             }
             break
             case 'waifu': {
@@ -2135,15 +2135,15 @@ case 'pinterest': {
                     buttons: buttons,
                     headerType: 4
                 }
-                ElgazarBot.sendMessage(m.chat, buttonMessage, { quoted: m })
+                𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, buttonMessage, { quoted: m })
             }
             break
 	    case 'تطقيم': case 'طقم': {
                 m.reply(mess.wait)
                 let anucpp = await fetchJson('https://raw.githubusercontent.com/DGXeon/XeonMedia/main/couple.json')
                 let random = anucpp[Math.floor(Math.random() * anucpp.length)]
-                ElgazarBot.sendMessage(m.chat, { image: { url: random.male }, caption: `ولد🙎🏻‍♂️` }, { quoted: m })
-                ElgazarBot.sendMessage(m.chat, { image: { url: random.female }, caption: `بنت🙍🏻‍♀️` }, { quoted: m })
+                𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { image: { url: random.male }, caption: `ولد🙎🏻‍♂️` }, { quoted: m })
+                𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { image: { url: random.female }, caption: `بنت🙍🏻‍♀️` }, { quoted: m })
             }
 	    break
             case 'coffee': case 'قهوه': {
@@ -2278,7 +2278,7 @@ case 'lava': case 'rockart': case 'bloodglas': case 'halloween': case 'darkgold'
              if (/1917/.test(command)) link = 'https://textpro.me/1917-style-text-effect-online-980.html'
                 if (/leaves/.test(command)) link = 'https://textpro.me/natural-leaves-text-effect-931.html'           
              let anutexpro = await maker.textpro(link, q)
-                ElgazarBot.sendMessage(m.chat, { image: { url: anutexpro }, caption: `Made by ${global.botname}` }, { quoted: m })
+                𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { image: { url: anutexpro }, caption: `Made by ${global.botname}` }, { quoted: m })
              }
              break
 case'glitch3':
@@ -2288,7 +2288,7 @@ teks1 = q.split("|")[0]
 teks2 = q.split("|")[1]
 maker.textpro("https://textpro.me/create-glitch-text-effect-style-tik-tok-983.html", [
     `${teks1}`,`${teks2}`])
-  .then((data) => ElgazarBot.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+  .then((data) => 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
 
@@ -2297,7 +2297,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/3d-box-text-effect-online-880.html", [
     `${q}`,])
-.then((data) => ElgazarBot.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+.then((data) => 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
 .catch((err) => console.log(err));
 break
 
@@ -2306,7 +2306,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)
  maker.textpro("https://textpro.me/dropwater-text-effect-872.html", [
      `${q}`,])
-    .then((data) => ElgazarBot.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+    .then((data) => 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
     .catch((err) => console.log(err));
      break
 
@@ -2315,7 +2315,7 @@ case 'lion2':
   m.reply(mess.wait)
   maker.textpro("https://textpro.me/create-lion-logo-mascot-online-938.html", [
       `${q}`,])
-     .then((data) => ElgazarBot.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+     .then((data) => 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
      .catch((err) => console.log(err));
      break
 
@@ -2324,7 +2324,7 @@ case 'papercut':
       m.reply(mess.wait)
       maker.textpro("https://textpro.me/create-art-paper-cut-text-effect-online-1022.html", [
 `${q}`,])
-         .then((data) => ElgazarBot.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+         .then((data) => 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
          .catch((err) => console.log(err));
          break
 
@@ -2333,7 +2333,7 @@ case 'transformer':
       m.reply(mess.wait)
       maker.textpro("https://textpro.me/create-a-transformer-text-effect-online-1035.html", [
 `${q}`,])
-.then((data) => ElgazarBot.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+.then((data) => 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
 .catch((err) => console.log(err));
 break
    
@@ -2344,7 +2344,7 @@ case 'harrypot':
        teks2 = q.split("|")[1]
        maker.textpro("https://textpro.me/create-harry-potter-text-effect-online-1025.html", [
  `${teks1}`,`${teks2}`])
- .then((data) => ElgazarBot.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+ .then((data) => 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
  .catch((err) => console.log(err));
  break
 
@@ -2353,7 +2353,7 @@ case 'neondevil':
       m.reply(mess.wait)
       maker.textpro("https://textpro.me/create-neon-devil-wings-text-effect-online-free-1014.html", [
 `${q}`,])
-         .then((data) => ElgazarBot.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+         .then((data) => 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
          .catch((err) => console.log(err));
          break
 
@@ -2362,7 +2362,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/3d-stone-cracked-cool-text-effect-1029.html", [
     `${q}`,])
-  .then((data) => ElgazarBot.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+  .then((data) => 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
 
@@ -2371,7 +2371,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/create-3d-avengers-logo-online-974.html", [
     `${q}`,])
-  .then((data) => ElgazarBot.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+  .then((data) => 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
 
@@ -2380,7 +2380,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/online-thunder-text-effect-generator-1031.html", [
     `${q}`,])
-  .then((data) => ElgazarBot.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+  .then((data) => 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
    
@@ -2389,7 +2389,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/write-text-on-foggy-window-online-free-1015.html", [
     `${q}`,])
-  .then((data) => ElgazarBot.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+  .then((data) => 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
 
@@ -2398,7 +2398,7 @@ if(!q) throw `Use ${prefix + command} text`
 m.reply(mess.wait)
 maker.textpro("https://textpro.me/create-neon-light-blackpink-logo-text-effect-online-1081.html", [
     `${q}`,])
-  .then((data) => ElgazarBot.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
+  .then((data) => 𝑮𝑶𝑱𝑶 𝑺𝑨𝑻𝑼𝑹𝑶.sendMessage(m.chat, { image: { url: data }, caption: `Made by ${global.botname}` }, { quoted: m }))
   .catch((err) => console.log(err));
    break
 
